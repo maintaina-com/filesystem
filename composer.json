@@ -1,0 +1,41 @@
+{
+    "name": "horde/filesystem",
+    "description": "Standalone object-oriented Filesystem library",
+    "type": "library",
+    "homepage": "https://www.horde.org",
+    "license": "LGPL-2.1",
+    "authors": [
+        {
+            "name": "Chuck Hagenbuch",
+            "email": "chuck@horde.org",
+            "role": "lead"
+        }
+    ],
+    "time": "2022-08-23",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://horde-satis.maintaina.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {},
+    "suggest": {},
+    "autoload": {
+        "psr-4": {
+            "Horde\\Filesystem\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Horde\\Filesystem\\Test\\": "test/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "horde/horde-installer-plugin": true
+        }
+    }
+}
