@@ -4,12 +4,17 @@ declare(strict_types=1);
 
 namespace Horde\Filesystem;
 
+use RuntimeException;
 use ValueError;
 
 trait AbsolutePathFromCurrentDirTrait
 {
     public static function fromCurrentDir(): AbsolutePathInterface
     {
-        return new AbsolutePath(getcwd());
+        $cwd = getcwd();
+        if (!$cwd) {
+            throw new RuntimeException('getcwd failed for unknown reasons');
+        }
+        return new AbsolutePath($cwd);
     }
 }

@@ -47,7 +47,7 @@ class RelativePath implements RelativePathInterface
      * Remove ../ together with the preceding level unless it hits the root
      * Remove trailing slashes unless it is the root slash.
      *
-     * @return Path
+     * @return RelativePathInterface
      */
     public function normalize(): RelativePathInterface
     {

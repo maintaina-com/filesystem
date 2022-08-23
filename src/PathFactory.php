@@ -15,8 +15,9 @@ use Stringable;
  */
 class PathFactory
 {
-    public function __invoke(string $path): RelativePath|AbsolutePath
+    public function __invoke(string|Stringable $path): RelativePath|AbsolutePath
     {
+        $path = (string) $path;
         if ($path && $path[0] === '/') {
             return new AbsolutePath($path);
         }

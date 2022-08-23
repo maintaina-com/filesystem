@@ -47,7 +47,7 @@ class AbsolutePath implements AbsolutePathInterface
      * Remove ../ together with the preceding level unless it hits the root
      * Remove trailing slashes unless it is the root slash.
      *
-     * @return Path
+     * @return AbsolutePath
      */
     public function normalize(): AbsolutePath
     {
@@ -64,7 +64,7 @@ class AbsolutePath implements AbsolutePathInterface
         return new AbsolutePath(Path::removeTrailingSlash($this->path));
     }
 
-    public function levelUp(int $levels = 1)
+    public function levelUp(int $levels = 1): AbsolutePath
     {
         return new AbsolutePath(Path::levelUp($this->path, $levels));
     }

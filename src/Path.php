@@ -23,6 +23,7 @@ class Path
 
     public static function removeTrailingSlash(string|Stringable $path): string
     {
+        $path = (string) $path;
         if ($path === '/') {
             // noop
             return $path;
@@ -116,11 +117,13 @@ class Path
 
     public static function isAbsolutePath(string|Stringable $path): bool
     {
+        $path = (string) $path;
         return $path && $path[0] == '/';
     }
 
     public static function hasLeadingAnchorDot(string|Stringable $path): bool
     {
+        $path = (string) $path;
         if ($path === '.') {
             return true;
         }
@@ -139,6 +142,7 @@ class Path
      */
     public static function normalize(string|Stringable $path): string
     {
+        $path = (string) $path;
         // keep leading / or . as they can be significant
         $prefix = '';
         $keep = [];
