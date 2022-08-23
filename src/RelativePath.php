@@ -36,6 +36,9 @@ class RelativePath implements RelativePathInterface
      */
     public function __construct(string $path)
     {
+        if (Path::isAbsolutePath($path)) {
+            throw new ValueError('Input represents an absolute Path: ' . $path);
+        }
         $this->path = $path;
     }
 

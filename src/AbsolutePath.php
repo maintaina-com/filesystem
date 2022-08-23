@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Horde\Filesystem;
 
+use Stringable;
 use ValueError;
 
 /**
@@ -32,11 +33,14 @@ class AbsolutePath implements AbsolutePathInterface
      * use ::fromCurrentDir to get the absolute path to cwd.
      * use '' or './' for the path relative to self
      *
-     * @param string $path
+     * @param string|Stringable $path
      * @throws ValueError
      */
-    public function __construct(string $path)
+    public function __construct(string|Stringable $path)
     {
+        if (!Path::isAbsolutePath($path)) {
+            throw new ValueError('Input represents no absolute Path: ' . $path);
+        }
         $this->path = $path;
     }
 
